@@ -1,8 +1,16 @@
 //! CyberWiki CLI entry point.
 //!
-//! Provides non-interactive and scripted access to the CyberWiki core
-//! for indexing, validation, and retrieval tasks in regulated environments.
+//! Binds command-line arguments to CyberWiki core operations, enabling
+//! scripted validation and analysis of the documentation corpus.
 
-fn main() {
-    // main entry, wired to command parsing and core invocation
+mod commands;
+
+use anyhow::Result;
+use clap::Parser;
+
+use crate::commands::cli::Cli;
+
+fn main() -> Result<()> {
+    let cli = Cli::parse();
+    cli.exec()
 }
