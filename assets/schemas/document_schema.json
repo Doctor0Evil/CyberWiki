@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CyberWiki Document",
+  "description": "Schema for a CyberWiki documentation artifact.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the document.",
+      "type": "string"
+    },
+    "title": {
+      "description": "Document title.",
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "description": "Short, technically precise summary.",
+      "type": "string"
+    },
+    "body_markdown": {
+      "description": "Full markdown body of the document.",
+      "type": "string"
+    },
+    "related_terms": {
+      "description": "Identifiers of related term entities.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "description": "List of lowercase tags used for indexing.",
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["id", "title", "summary", "body_markdown"],
+  "additionalProperties": false
+}
