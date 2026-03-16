@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CyberWiki Term",
+  "description": "Schema for a CyberWiki term entity representing a non-fictional concept or object.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the term.",
+      "type": "string"
+    },
+    "name": {
+      "description": "Canonical term name.",
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "description": "Classification of the term within CyberWiki.",
+      "type": "string"
+    },
+    "short_definition": {
+      "description": "Concise technical definition.",
+      "type": "string",
+      "minLength": 8
+    },
+    "long_description": {
+      "description": "Detailed description suitable for documentation.",
+      "type": "string"
+    },
+    "primary_domain": {
+      "description": "Primary domain such as BCI, EEG, cybernetics, or nanoswarm.",
+      "type": "string"
+    },
+    "tags": {
+      "description": "List of lowercase tags used for indexing.",
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "kind",
+    "short_definition",
+    "long_description",
+    "primary_domain"
+  ],
+  "additionalProperties": false
+}
