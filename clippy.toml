@@ -1,0 +1,7 @@
+# cyberwiki/clippy.toml
+
+warns = [
+    "clippy::all",
+    "clippy::pedantic",
+    "clippy::nursery",
+]
