@@ -1,3 +1,5 @@
+# cyberwiki/Cargo.toml
+
 [workspace]
 members = [
   "crates/core",
@@ -16,3 +18,5 @@ thiserror = "1.0"
 tracing = "0.1"
 tracing-subscriber = "0.3"
 anyhow = "1.0"
+clap = { version = "4.0", features = ["derive"] }
+axum = "0.7"
