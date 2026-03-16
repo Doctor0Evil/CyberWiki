@@ -1,0 +1,12 @@
+[package]
+name = "cyberwiki-api"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cyberwiki-core = { path = "../core" }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
