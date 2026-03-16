@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CyberWiki Provenance Record",
+  "description": "Schema for a provenance record linking an entity to its sources and attestations.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the provenance record.",
+      "type": "string"
+    },
+    "entity_id": {
+      "description": "Identifier of the term or document this provenance record describes.",
+      "type": "string"
+    },
+    "sources": {
+      "description": "Structured list of sources from which factual content was derived.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "uri": { "type": ["string", "null"] },
+          "trust_level": { "type": "string" }
+        },
+        "required": ["id", "name", "trust_level"],
+        "additionalProperties": false
+      }
+    },
+    "attestations": {
+      "description": "Cryptographic or process-level attestations associated with this record.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "attestor_id": { "type": "string" },
+          "method": { "type": "string" },
+          "signature": { "type": ["string", "null"] },
+          "timestamp": { "type": "string", "format": "date-time" }
+        },
+        "required": ["attestor_id", "method", "timestamp"],
+        "additionalProperties": false
+      }
+    },
+    "created_at": {
+      "description": "Creation timestamp for this provenance record.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_verified_at": {
+      "description": "Timestamp of the most recent verification event, if any.",
+      "type": ["string", "null"],
+      "format": "date-time"
+    }
+  },
+  "required": ["id", "entity_id", "sources", "created_at"],
+  "additionalProperties": false
+}
